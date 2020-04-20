@@ -8,10 +8,7 @@ spring:
         output.destination: user-topic-final-data
   kafka:
     client-id: kafka-stream-singularity-demo
-    bootstrap-servers:
-      - localhost:9091
-      - localhost:9092
-      - localhost:9093
+    bootstrap-servers: 34.87.233.5:9092
     template:
       default-topic: user-topic-transform-data
     producer:
