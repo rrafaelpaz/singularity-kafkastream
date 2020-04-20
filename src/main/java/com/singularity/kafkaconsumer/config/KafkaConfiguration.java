@@ -1,6 +1,7 @@
 package com.singularity.kafkaconsumer.config;
 
 
+import com.singularity.kafkaconsumer.model.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -11,6 +12,8 @@ import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.annotation.KafkaStreamsDefaultConfiguration;
 import org.springframework.kafka.config.KafkaStreamsConfiguration;
+import org.springframework.kafka.support.serializer.JsonDeserializer;
+import org.springframework.kafka.support.serializer.JsonSerde;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,9 +30,13 @@ public class KafkaConfiguration {
         config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaProperties.getBootstrapServers());
         config.put(StreamsConfig.APPLICATION_ID_CONFIG, kafkaProperties.getClientId());
         config.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
-        config.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
+        config.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, new JsonSerde<>(User.class).getClass());
+        config.put(JsonDeserializer.DEFAULT_KEY_TYPE, String.class);
+        config.put(JsonDeserializer.DEFAULT_VALUE_TYPE, User.class);
         return new KafkaStreamsConfiguration(config);
     }
+
+
 
 
 }

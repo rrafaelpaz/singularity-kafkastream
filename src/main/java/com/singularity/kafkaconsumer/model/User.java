@@ -1,5 +1,5 @@
 package com.singularity.kafkaconsumer.model;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class User {
 
@@ -10,7 +10,7 @@ public class User {
     private String gender;
     private String nickName;
 
-    public User(String name, String surname, Integer age, String gender) {
+    public User(@JsonProperty("name") String name, @JsonProperty("surname") String surname, @JsonProperty("age") Integer age, @JsonProperty("gender") String gender) {
         this.name = name;
         this.surname = surname;
         this.age = age;
