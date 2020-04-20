@@ -1,0 +1,24 @@
+
+spring:
+  application.name: singularity-demo-stream-processing
+  cloud:
+    stream:
+      bindings:
+        input.destination: user-topic-transform-data
+        output.destination: user-topic-final-data
+  kafka:
+    client-id: kafka-stream-singularity-demo
+    bootstrap-servers:
+      - localhost:9091
+      - localhost:9092
+      - localhost:9093
+    template:
+      default-topic: user-topic-transform-data
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: random-consumer
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringSerializer
