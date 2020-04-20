@@ -18,7 +18,7 @@ public class UserKafkaStreamProcessor {
     @StreamListener("input")
     @SendTo("output")
     public KStream<?, User> process(KStream<String, User> input) {
-        System.out.println(input.getName())
+        System.out.println("input.getName()");
         return input.map((key, value) -> new KeyValue<>(null, this.transformMessage(value)));
     }
 
