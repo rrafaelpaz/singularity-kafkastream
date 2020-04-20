@@ -11,3 +11,4 @@ spring:
     bootstrap-servers: 34.87.233.5:9092
     template:
       default-topic: user-topic-transform-data
+
