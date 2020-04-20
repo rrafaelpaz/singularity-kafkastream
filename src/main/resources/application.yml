@@ -8,6 +8,6 @@ spring:
         output.destination: user-topic-final-data
   kafka:
     client-id: demo-stream-processing
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: 35.244.121.169:9092
     template:
       default-topic: user-topic-transform-data
