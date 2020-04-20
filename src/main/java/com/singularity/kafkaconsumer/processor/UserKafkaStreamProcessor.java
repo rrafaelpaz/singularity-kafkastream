@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 @EnableBinding(KafkaStreamsProcessor.class)
 public class UserKafkaStreamProcessor {
 
-
     @StreamListener("input")
     @SendTo("output")
     public KStream<?, User> process(KStream<String, User> input) {

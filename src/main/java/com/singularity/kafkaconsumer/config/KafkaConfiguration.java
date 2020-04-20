@@ -21,7 +21,6 @@ import java.util.Map;
 public class KafkaConfiguration {
 
 
-
     @Bean(name = KafkaStreamsDefaultConfiguration.DEFAULT_STREAMS_CONFIG_BEAN_NAME)
     public KafkaStreamsConfiguration kStreamsConfigs(KafkaProperties kafkaProperties) {
         Map<String, Object> config = new HashMap<>();

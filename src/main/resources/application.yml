@@ -7,15 +7,7 @@ spring:
         input.destination: user-topic-transform-data
         output.destination: user-topic-final-data
   kafka:
-    client-id: kafka-stream-singularity-demo
-    bootstrap-servers: 35.244.121.169:9092
+    client-id: demo-stream-processing
+    bootstrap-servers: localhost:9092
     template:
       default-topic: user-topic-transform-data
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-    consumer:
-      group-id: random-consumer
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringSerializer
